@@ -1,0 +1,10 @@
+{
+    "name": "Custom Tab",
+    "version": "1.0",
+    "description": "Another take on a custom new tab",
+    "chrome_url_overrides": {
+        "newtab": "custom_tab.html"
+    },
+    "manifest_version": 2
+}
+
