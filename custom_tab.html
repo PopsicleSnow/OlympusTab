@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 
-<html lang="en" style="background-color: rgb(25, 25, 25);">
+<html lang="en" style="background-color: rgb(29, 29, 29);">
     <title>
         New Tab
     </title>
+    <style>
+        .search
+        {
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            size: "500";
+            padding-top: 13%;
+        }
+        h1
+        {
+            color: white;
+            font-family: sans-serif;
+        }
+        #search_box
+        {
+            border-radius: 20px;
+            height: 14px;
+            width: 550px;
+            background: rgb(53, 53, 53);
+            color: white;
+            padding: 20px;
+            outline: none;
+            font-size: 18px;
+        }
+    </style>
     <body>
-        <h1 style="text-align: center;">
+        <div class="search">
             <form action="https://www.google.com/search" method="GET">
-                <input name="q" type="text">
-                <input type="button" value="Search Google">
+                <input id="search_box" name="q" autocomplete="off" type="text" size="60">
             </form>
-        </h1>
+        </div>
         </br>
-        <img src="cat.jpg"></br>
-        <table>
-            <tr>
-                <td><p>Visit <a href="fake_bank_of_america.html" target="_blank">Fake Bank of America</a></p></td>
-            </tr>
-            <tr>
-                <td><p>Visit <a href="fake_paypal_signin.html" target="_blank">Fake Paypal</a></p></td>
-            </tr>
-        </table>
     </body>
 </html>
