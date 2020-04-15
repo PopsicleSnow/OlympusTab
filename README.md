@@ -1,3 +1,3 @@
 # Custom New Tab
 
-Yet another take on a custome new tab page.
+Yet another take on a custom new tab page.
