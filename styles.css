@@ -4,14 +4,19 @@
     color: white;
     size: "900";
     margin-top: 190px;
+    margin-left: 270px;
+    position: relative;
 }
+
 h1
 {
     color: white;
     font-family: sans-serif;
 }
+
 #search_box
 {
+    position: relative;
     border-radius: 20px;
     height: 14px;
     width: 710px;
@@ -23,21 +28,69 @@ h1
     font-family: sans-serif;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+.search_box_form
+{
+    float: left;
+}
+
+.dropdown
+{
+    margin-top: 0px;
+    margin-left: -5px;
+    float: left;
+}
+
+.dropbtn {
+    outline: none;
+    width: 64px;
+    height: 63px;
+    border-radius: 45%;
+    background-color: #303030;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
   }
-  
+
+  .dropdown-content button {
+    outline: none;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: rgb(53, 53, 53);
+  }
+
   .dropdown-content {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
+    background-color: rgb(53, 53, 53);
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,10);
     z-index: 1;
   }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
+
+  .dropdown-content button:hover {background-color: rgb(40, 40, 40);}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {
+    background-color: rgb(77, 77, 77);
+    border-radius: 0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  #hover_button
+  {
+      margin-left: 1px
+  }
+
+  #bing
+  {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
   }

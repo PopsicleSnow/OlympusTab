@@ -9,10 +9,39 @@
     </head>
     <body>
         <div class="search">
-            <form action="https://www.google.com/search" method="GET">
-                <input id="search_box" name="q" autocomplete="off" type="text" placeholder="Search...">
-            </form>
-            <img src="images/google_icon.png" alt="Google" height="42" width="42">
+            <div class="search_box_form">
+                <form id=web_engine name=web-engine action="https://www.google.com/search" method="GET">
+                    <input id="search_box" name="q" autocomplete="off" type="text" placeholder="Search...">
+                </form>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="images/google_icon.png" id="hover_button" height="32" width="32"></button>
+                <div class="dropdown-content">
+                    <button type="button" id="google"><img src="images/google_icon.png" alt="Google" height="32" width="32"></button>
+                    <button type="button" id="duckduckgo"><img src="images/duckduckgo.png" alt="DuckDuckGo" height="32" width="32"></button>
+                    <button type="button" id="bing"><img src="images/bing_icon.png" alt="Bing" height="32" width="32"></button>
+                </div>
+            </div>
+            <script>
+                document.getElementById("google").addEventListener("click", function(){engine_change("google");});
+                document.getElementById("duckduckgo").addEventListener("click", function(){engine_change("duckduckgo");});
+                document.getElementById("bing").addEventListener("click", function(){engine_change("bing");});
+                function engine_change(engine){
+                    if (engine == "google"){
+                        document.getElementById("web_engine").action = "https://www.google.com/search";
+                        document.getElementById("hover_button").src = "images/google_icon.png";
+                    }
+                    if (engine == "duckduckgo"){
+                        document.getElementById("web_engine").action = "https://www.duckduckgo.com/";
+                        document.getElementById("hover_button").src = "images/duckduckgo.png";
+                    }
+                    if (engine == "bing"){
+                        document.getElementById("web_engine").action = "https://www.bing.com/search";
+                        document.getElementById("hover_button").src = "images/bing_icon.png";
+                    }
+                }
+            </script>
+            <script type="text/javascript">document.getElementById("search_box").focus();</script>
         </div>
         </br>
     </body>
