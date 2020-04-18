@@ -3,7 +3,7 @@
     text-align: center;
     color: white;
     size: "900";
-    margin-top: 190px;
+    margin-top: 180px;
     margin-left: 270px;
     position: relative;
 }
@@ -93,4 +93,41 @@ h1
   {
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
+  }
+
+  #astronaut
+  {
+      position: absolute;
+      width: 80px;
+      top: 400px;
+      right: 400px;
+  }
+
+  .settings
+  {
+      position: absolute;
+      top: 610px;
+      left: 30px;
+  }
+
+  #setting_button
+  {
+      height: 35px;
+      outline: none;
+      position: absolute;
+      background-color: transparent;
+      color: transparent;
+      border: none;
+  }
+
+  #setting_wheel
+  {
+      height: 30px;
+      opacity: 0.4;
+  }
+
+  .settings_screen
+  {
+      display: none;
+      color: white;
   }
