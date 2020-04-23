@@ -131,3 +131,9 @@ h1
       display: none;
       color: white;
   }
+
+  .last_one
+  {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
