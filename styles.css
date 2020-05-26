@@ -50,9 +50,9 @@ h1
     padding: 15px;
     font-size: 16px;
     border: none;
-  }
+}
 
-  .dropdown-content button {
+.dropdown-content button {
     outline: none;
     border: none;
     color: black;
@@ -60,9 +60,9 @@ h1
     text-decoration: none;
     display: block;
     background-color: rgb(53, 53, 53);
-  }
+}
 
-  .dropdown-content {
+.dropdown-content {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     display: none;
@@ -71,63 +71,99 @@ h1
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,10);
     z-index: 1;
-  }
+}
 
-  .dropdown-content button:hover {background-color: rgb(40, 40, 40);}
+.dropdown-content button:hover {background-color: rgb(40, 40, 40);}
 
-  .dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
 
-  .dropdown:hover .dropbtn {
+.dropdown:hover .dropbtn {
     background-color: rgb(77, 77, 77);
     border-radius: 0px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-  }
+}
 
-  #hover_button
-  {
-      margin-left: 1px
-  }
+#hover_button
+{
+    margin-left: 1px
+}
 
-  .dropdown-content button:last-child
-  {
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-  }
+.dropdown-content button:last-child
+{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 
-  #astronaut
-  {
-      position: absolute;
-      width: 80px;
-      top: 400px;
-      right: 400px;
-  }
+#astronaut
+{
+    position: absolute;
+    width: 80px;
+    top: 400px;
+    right: 400px;
+}
 
-  .settings
-  {
-      position: absolute;
-      top: 610px;
-      left: 30px;
-  }
+.settings
+{
+    position: absolute;
+    top: 610px;
+    left: 30px;
+}
 
-  #setting_button
-  {
-      height: 35px;
-      outline: none;
-      position: absolute;
-      background-color: transparent;
-      color: transparent;
-      border: none;
-  }
+#setting_button
+{
+    height: 35px;
+    outline: none;
+    position: absolute;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    z-index: 2;
+}
 
-  #setting_wheel
-  {
-      height: 30px;
-      opacity: 0.4;
-  }
+#setting_button:hover,
+#setting_button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-  .settings_screen
-  {
-      display: none;
-      color: white;
-  }
+/* Settings Wheel Image */
+#setting_wheel
+{
+    height: 30px;
+    opacity: 0.4;
+}
+
+.settings_modal
+{
+    border-radius: 25px;
+    display: none; /* Hidden by default */
+    color: white;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 5px;
+    top: 41%;
+    width: 30%; /* Full width */
+    height: 50%; /* Full height */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal_content {
+    position: relative;
+    margin: 7% auto; /* 15% from the top and centered */
+    padding: 0px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}

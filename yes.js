@@ -35,12 +35,20 @@ function engine_change(engine){
         'border-bottom-right-radius': '20px'});
 }
 
-settings_screen = $(".settings_screen");
-document.getElementById("setting_button").onclick = function() {
-    if (settings_screen.css('display') == "none") {
-        settings_screen.css('display', 'block');           
-    }
-    else{
+// Opens and closes settings
+settings_screen = $(".settings_modal");
+$(document).click(function(event) {
+    // If you click on anything except the modal itself or the "open modal" link, close the modal
+    if (!$(event.target).closest(".settings_modal, #setting_button").length) {
         settings_screen.css('display', 'none');
     }
-}
+    // If you click on settings button, open/close
+    if ($(event.target).closest("#setting_button").length) {
+        if (settings_screen.css('display') == "none") {
+            settings_screen.css('display', 'block');           
+        }
+        else {
+            settings_screen.css('display', 'none');
+        }
+    }
+});

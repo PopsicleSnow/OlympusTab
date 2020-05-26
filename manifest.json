@@ -5,6 +5,9 @@
     "chrome_url_overrides": {
         "newtab": "custom_tab.html"
     },
+    "permissions": [
+        "storage"
+    ],
     "manifest_version": 2
 }
 
