@@ -1,4 +1,4 @@
-# Olympus New Tab Page
+# CosmicOlympus New Tab Page
 
 Yet another take on a custom new tab page.
 
