@@ -13,5 +13,7 @@ View it here: https://popsiclesnow.github.io/Olympus/custom_tab.html.
 [Google Chrome](https://support.google.com/chrome/a/answer/2714278)
 
 ### TODO
- - Add settings option to change background color using chrome.storage.local.set
+ - Save background to chrome.storage.local.set
+ - Ability to use default background
+ - Implement favicon support
  - Add custom search engine logo above search bar with toggle to remove it in settings
