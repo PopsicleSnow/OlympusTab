@@ -2,6 +2,7 @@
 
 <html lang="en">
     <head>
+        <link rel="icon" href="/images/favicons/collo.ico" type="image/x-icon"/>
         <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>
@@ -21,7 +22,7 @@
                 <button class="dropbtn"><img src="images/google_icon.png" id="hover_button" height="32" width="32"></button>
                 <div class="dropdown-content">
                     <button type="button" id="google"><img src="images/google_icon.png" alt="Google" height="32" width="32"></button>
-                    <button type="button" id="duckduckgo"><img src="images/duckduckgo.png" alt="DuckDuckGo" height="32" width="32"></button>
+                    <button type="button" id="duckduckgo"><img src="images/duckduckgo_icon.png" alt="DuckDuckGo" height="32" width="32"></button>
                     <button type="button" id="bing"><img src="images/bing_icon.png" alt="Bing" height="32" width="32"></button>
                 </div>
             </div>
@@ -35,7 +36,22 @@
             
             <div class="settings_modal">
                 <div class="modal_content">
-                    <p>Coming Soon</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Background Color:</th>
+                                <td><input type="color" value="b-color" id="b_color"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Search Engine Logo:</th>
+                                <td><input type="checkbox" id="big_logo"/></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Favicon:</th>
+                                <td><input type="image" id="favicons"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             

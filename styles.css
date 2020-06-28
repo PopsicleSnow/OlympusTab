@@ -68,14 +68,15 @@ h1
 }
 
 .dropdown-content {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     display: none;
+    overflow: hidden;
     position: absolute;
     background-color: rgb(53, 53, 53);
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,10);
     z-index: 1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .dropdown-content button:hover {background-color: rgb(40, 40, 40);}
@@ -92,12 +93,6 @@ h1
 #hover_button
 {
     margin-left: 1px
-}
-
-.dropdown-content button:last-child
-{
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
 }
 
 #astronaut
@@ -147,14 +142,14 @@ h1
     color: white;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 5px;
+    left: 20px;
     top: 41%;
-    width: 30%; /* Full width */
+    width: 24%; /* Full width */
     height: 50%; /* Full height */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    background-color: rgba(14, 14, 14, 0.6); /* Black w/ opacity */
 }
   
 /* Modal Content/Box */
@@ -171,4 +166,20 @@ h1
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+
+table
+{
+    width: 100%;
+}
+
+th
+{
+    font-size: 15px;
+    text-align: left;
+}
+
+td
+{
+    text-align: right;
 }
