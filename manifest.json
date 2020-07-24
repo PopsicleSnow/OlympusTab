@@ -8,6 +8,9 @@
     "permissions": [
         "storage"
     ],
+    "browser_action": {
+        "default_icon": "images/favicons/collo.png"
+    },
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
     "manifest_version": 2
 }
