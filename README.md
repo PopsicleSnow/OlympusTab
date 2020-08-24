@@ -17,3 +17,4 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
  - Ability to use default background
  - Implement favicon support
  - Add custom search engine logo above search bar with toggle to remove it in settings
+ - Add clickable search icon in search bar
