@@ -10,6 +10,7 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
 
 # Installation
 [Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/adding-and-removing-extensions#adding-an-extension)
+
 [Google Chrome](https://support.google.com/chrome/a/answer/2714278)
 
 ### TODO
