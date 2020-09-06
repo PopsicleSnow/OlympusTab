@@ -3,6 +3,26 @@ body
     background-color: rgb(31, 31, 31);
 }
 
+.alert
+{
+    display: none;
+    z-index: 1;
+    left: 42%;
+    top: 0px;
+    width: 210px;
+    height: 50px;
+    background-color: black;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.shame
+{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
 .search
 {
     text-align: center;

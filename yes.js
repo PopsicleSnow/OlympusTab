@@ -4,6 +4,7 @@ var google = document.getElementById("google");
 var duckduckgo = document.getElementById("duckduckgo");
 var bing = document.getElementById("bing");
 var bg_color = document.getElementById("b_color");
+var alert = document.getElementById("shame_alert");
 
 // Event listeners for click of buttons under dropdown
 google.addEventListener("click", function(){engine_change("google");});
@@ -93,13 +94,20 @@ function engine_change(engine){
         'border-bottom-right-radius': '20px'});
 }
 
-// changes color of other elements to match theme
+// changes color of background and other elements to match theme
 function theme_color(color){
     document.body.style.backgroundColor = color;
     var rgb_ = hexToRgb(color);
     rgb_.r += 22;
     rgb_.g += 22;
     rgb_.b += 22;
+    if (rgb_.r - 22 > 130 && rgb_.g - 22> 130 && rgb_.b - 22 > 130) {
+        alert.style.backgroundColor = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
+        alert.style.display = "inline";
+    }
+    else {
+        alert.style.display = "none";
+    }
     document.getElementById("search_box").style.background = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
 }
 
