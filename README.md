@@ -13,6 +13,10 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
 
 [Google Chrome](https://support.google.com/chrome/a/answer/2714278)
 
+# Features
+ - Google, Bing, DuckDuckGo search options
+ - Custom theme colors
+
 ### TODO
  - Save background to chrome.storage.local.set
  - Ability to use default background
