@@ -1,5 +1,5 @@
-var web_engine = document.getElementById("web_engine");
-var hover_button = document.getElementById("hover_button");
+var searchBar = document.getElementById("web_engine");
+var hover_button = document.getElementById("currentEngine");
 var google = document.getElementById("google");
 var duckduckgo = document.getElementById("duckduckgo");
 var bing = document.getElementById("bing");
@@ -77,12 +77,12 @@ function engine_change(engine){
     bing.style.display = '';
     if (engine == "duckduckgo"){
         chrome.storage.local.set({search: "duckduckgo"});
-        web_engine.action = "https://www.duckduckgo.com/";
+        searchBar.action = "https://www.duckduckgo.com/";
         hover_button.src = "images/duckduckgo_icon.png";
     }
     else {
         chrome.storage.local.set({search: `${engine}`});
-        web_engine.action = `https://www.${engine}.com/search`;
+        searchBar.action = `https://www.${engine}.com/search`;
         hover_button.src = `images/${engine}_icon.png`;
     }
     $(".dropdown-content button").css({
