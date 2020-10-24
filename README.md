@@ -24,4 +24,4 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
  - Add custom search engine logo above search bar with toggle to remove it in settings
  - Add clickable search icon in search bar
  - Privacy mode to search without cache/cookies
- - Add walmart and other stores search
+ - Double click search icon for online stores search, e.g. walmart
