@@ -1,22 +1,22 @@
 body
 {
     background-color: rgb(31, 31, 31);
+    margin: 0;
+    padding: 0;
 }
 
 #shame_alert
 {
     display: none;
-    z-index: 1;
-    left: 42%;
-    top: 0px;
-    width: 210px;
-    height: 50px;
-    background-color: black;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    color: white;
+    position: absolute;
+    width: 150px;
+    left: 45%;
     text-align: center;
     font-size: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+    color: white;
 }
 
 
@@ -24,10 +24,12 @@ body
 {
     text-align: center;
     color: white;
-    size: "900";
+    padding: 170px 0px 0px 270px;
+    /*
     margin-top: 180px;
-    margin-left: 270px;
-    position: relative;
+    margin-left: 270px; 
+    */
+    /** position: relative; **/
 }
 
 h1

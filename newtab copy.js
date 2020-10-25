@@ -103,10 +103,11 @@ function theme_color(color){
     rgb_.g += 22;
     rgb_.b += 22;
     if (rgb_.r - 22 > 130 && rgb_.g - 22> 130 && rgb_.b - 22 > 130) {
-        shameAlert.style.display = "inline";
+        alert.style.backgroundColor = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
+        alert.style.display = "inline";
     }
     else {
-        shameAlert.style.display = "none";
+        alert.style.display = "none";
     }
     document.getElementById("search_box_form_input").style.background = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
 }
