@@ -3,7 +3,7 @@ body
     background-color: rgb(31, 31, 31);
 }
 
-.alert
+#shame_alert
 {
     display: none;
     z-index: 1;
@@ -14,16 +14,13 @@ body
     background-color: black;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-}
-
-.shame
-{
     color: white;
     text-align: center;
     font-size: 15px;
 }
 
-.search
+
+#search
 {
     text-align: center;
     color: white;
@@ -39,7 +36,7 @@ h1
     font-family: sans-serif;
 }
 
-#search_box
+#search_box_form_input
 {
     position: relative;
     border-radius: 20px;
@@ -53,12 +50,12 @@ h1
     font-family: sans-serif;
 }
 
-.search_box_form
+#search_box
 {
     float: left;
 }
 
-.dropdown
+#search_dd
 {
     margin-top: 0px;
     margin-left: -5px;
@@ -77,7 +74,7 @@ h1
     border: none;
 }
 
-.dropdown-content button {
+.dropdown_content button {
     outline: none;
     border: none;
     color: black;
@@ -87,7 +84,7 @@ h1
     background-color: rgb(53, 53, 53);
 }
 
-.dropdown-content {
+.dropdown_content {
     display: none;
     overflow: hidden;
     position: absolute;
@@ -100,18 +97,18 @@ h1
     border-bottom-right-radius: 20px;
 }
 
-.dropdown-content button:hover {background-color: rgb(40, 40, 40);}
+.dropdown_content button:hover {background-color: rgb(40, 40, 40);}
 
-.dropdown:hover .dropdown-content {display: block;}
+#search_dd:hover .dropdown_content {display: block;}
 
-.dropdown:hover .dropbtn {
+#search_dd:hover .dropbtn {
     background-color: rgb(77, 77, 77);
     border-radius: 0px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-#hover_button
+#current-engine
 {
     margin-left: 1px
 }
@@ -124,7 +121,7 @@ h1
     right: 400px;
 }
 
-.settings
+#settings
 {
     position: absolute;
     top: 610px;
@@ -156,7 +153,7 @@ h1
     opacity: 0.4;
 }
 
-.settings_modal
+#settings_modal
 {
     border-radius: 25px;
     display: none; /* Hidden by default */
@@ -183,7 +180,7 @@ h1
     animation-duration: 0.4s
 }
 
-/* Add Animation */
+/* Add Settings Modal Animation */
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}

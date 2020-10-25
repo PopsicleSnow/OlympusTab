@@ -1,16 +1,16 @@
-var searchBar = document.getElementById("web_engine");
-var hover_button = document.getElementById("currentEngine");
+var searchBar = document.getElementById("search_box_form");
+var currentEngine = document.getElementById("current-engine");
 var google = document.getElementById("google");
 var duckduckgo = document.getElementById("duckduckgo");
 var bing = document.getElementById("bing");
-var bg_color = document.getElementById("b_color");
-var alert = document.getElementById("shame_alert");
+var pageColor = document.getElementById("bg_color");
+var shameAlert = document.getElementById("shame_alert");
 
 // Event listeners for click of buttons under dropdown
 google.addEventListener("click", function(){engine_change("google");});
 duckduckgo.addEventListener("click", function(){engine_change("duckduckgo");});
 bing.addEventListener("click", function(){engine_change("bing");});
-bg_color.addEventListener("input", function(){theme_color(bg_color.value);});
+pageColor.addEventListener("input", function(){theme_color(pageColor.value);});
 $(document).ready(load())
 
 // Retrieves settings and loads them
@@ -36,7 +36,7 @@ function load() {
 
     // Sets color input to current background color
     var currentbg_color = getRGB(window.getComputedStyle(document.body).backgroundColor);
-    bg_color.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
+    pageColor.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
 }
 
 // splits rgb color values from strings into an array of strings (must be converted to int by parseInt)
@@ -67,7 +67,7 @@ function hexToRgb(hex) {
 
 // Saves settings to chrome local storage
 function saveSettings() {
-    chrome.storage.local.set({Background_Color: bg_color.value});
+    chrome.storage.local.set({Background_Color: pageColor.value});
 }
 
 // Changes the search engine
@@ -78,17 +78,17 @@ function engine_change(engine){
     if (engine == "duckduckgo"){
         chrome.storage.local.set({search: "duckduckgo"});
         searchBar.action = "https://www.duckduckgo.com/";
-        hover_button.src = "images/duckduckgo_icon.png";
+        currentEngine.src = "images/duckduckgo_icon.png";
     }
     else {
         chrome.storage.local.set({search: `${engine}`});
         searchBar.action = `https://www.${engine}.com/search`;
-        hover_button.src = `images/${engine}_icon.png`;
+        currentEngine.src = `images/${engine}_icon.png`;
     }
-    $(".dropdown-content button").css({
+    $(".dropdown_content button").css({
         'border-bottom-left-radius': '0px',
         'border-bottom-right-radius': '0px'});
-    let last_visible_dropdown = $('.dropdown-content button:visible:last');
+    let last_visible_dropdown = $('.dropdown_content button:visible:last');
     last_visible_dropdown.css({
         'border-bottom-left-radius': '20px',
         'border-bottom-right-radius': '20px'});
@@ -108,14 +108,14 @@ function theme_color(color){
     else {
         alert.style.display = "none";
     }
-    document.getElementById("search_box").style.background = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
+    document.getElementById("search_box_form_input").style.background = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
 }
 
 // Opens and closes settings
-settings_screen = $(".settings_modal");
+settings_screen = $("#settings_modal");
 $(document).click(function(event) {
     // If you click on anything except the modal itself or the "open modal" link, close the modal
-    if (!$(event.target).closest(".settings_modal, #setting_button").length) {
+    if (!$(event.target).closest("#settings_modal, #setting_button").length) {
         settings_screen.css('display', 'none');
     }
     // If you click on settings button, open/close
