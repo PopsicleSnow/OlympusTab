@@ -25,3 +25,4 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
  - Add clickable search icon in search bar
  - Privacy mode to search without cache/cookies
  - Double click search icon for online stores search, e.g. walmart
+ - Make astronaut float, (move slightly)
