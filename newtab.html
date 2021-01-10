@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
     <head>
         <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,40 +13,47 @@
         
         <!-- https://github.com/PopsicleSnow/CosmicOlympus --> 
 
-        <div id="shame_alert" class="alert">
-            <div class="shame">
-                <p>Shame</p>
-            </div>
-        </div>
-        <div class="search">
-            <div class="search_box_form">
-                <form id=web_engine name=web-engine action="https://www.google.com/search" method="GET">
-                    <input id="search_box" name="q" autocomplete="off" type="text" placeholder="Search...">
+        <div id="search">
+            <!-- Search Box to type search query -->
+            <div id="search_box">
+                <form id=search_box_form name=web_engine action="https://www.google.com/search" method="GET">
+                    <input id="search_box_form_input" name="q" autocomplete="off" type="text" placeholder="Search...">
                 </form>
             </div>
-            <div class="dropdown">
-                <button class="dropbtn"><img src="images/google_icon.png" id="hover_button" height="32" width="32"></button>
-                <div class="dropdown-content">
-                    <button type="button" id="google"><img src="images/google_icon.png" alt="Google" height="32" width="32"></button>
-                    <button type="button" id="duckduckgo"><img src="images/duckduckgo_icon.png" alt="DuckDuckGo" height="32" width="32"></button>
-                    <button type="button" id="bing"><img src="images/bing_icon.png" alt="Bing" height="32" width="32"></button>
+
+            <!-- Dropdown to select search engine -->
+            <div id="search_dd">
+                <button class="dropbtn">
+                    <img src="images/google_icon.png" id="current-engine" height="32" width="32">
+                </button>
+                <div class="dropdown_content">
+                    <button type="button" id="google">
+                        <img src="images/google_icon.png" alt="Google" height="32" width="32">
+                    </button>
+                    <button type="button" id="duckduckgo">
+                        <img src="images/duckduckgo_icon.png" alt="DuckDuckGo" height="32" width="32">
+                    </button>
+                    <button type="button" id="bing">
+                        <img src="images/bing_icon.png" alt="Bing" height="32" width="32">
+                    </button>
                 </div>
             </div>
         </div>
-        </br>
 
         <image id="astronaut" src="images/astronaut.png"></image>
 
-        <div class=settings>
-            <button id="setting_button"><image id="setting_wheel" src="images/settings.svg"></image></button>
+        <div id=settings>
+            <button id="setting_button">
+                <image id="setting_wheel" src="images/settings.svg"></image>
+            </button>
             
-            <div class="settings_modal">
+            <div id="settings_modal">
                 <div class="modal_content">
                     <table>
                         <tbody>
                             <tr>
                                 <th scope="row">Theme Color:</th>
-                                <td><input type="color" id="b_color"></td>
+                                <td><input type="color" id="bg_color"></td>
                             </tr>
                             <tr>
                                 <th scope="row">Search Engine Logo:</th>
@@ -56,9 +63,13 @@
                                 <th scope="row">Favicon:</th>
                                 <td><input type="image" id="favicons"/></td>
                             </tr>
+                            <tr>
+                                <th scope="row">Reverse Colors:</th>
+                                <td><input type="checkbox" id="big_logo"/></td>
+                            </tr>
                         </tbody>
                     </table>
-                    <button id="SettingsSaveButton">Lol</button>
+                    <button id="settings-save">Lol</button>
                 </div>
             </div>
             

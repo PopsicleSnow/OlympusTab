@@ -4,20 +4,22 @@ var google = document.getElementById("google");
 var duckduckgo = document.getElementById("duckduckgo");
 var bing = document.getElementById("bing");
 var pageColor = document.getElementById("bg_color");
+var shameAlert = document.getElementById("shame_alert");
 
 // Event listeners for click of buttons under dropdown
 google.addEventListener("click", function(){engine_change("google");});
 duckduckgo.addEventListener("click", function(){engine_change("duckduckgo");});
 bing.addEventListener("click", function(){engine_change("bing");});
 pageColor.addEventListener("input", function(){theme_color(pageColor.value);});
+$(document).ready(load())
 
 // Retrieves settings and loads them
-$(document).ready(load())
 function load() {
 
     // Set search engine to last used
     chrome.storage.local.get('search', function (result) {
         engine = result.search;
+        console.log(engine)
         if (engine != "undefined") {
             engine_change(engine);
         }
@@ -38,11 +40,6 @@ function load() {
     pageColor.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
 }
 
-// Saves settings to chrome local storage
-function saveSettings() {
-    chrome.storage.local.set({Background_Color: pageColor.value});
-}
-
 // splits rgb color values from strings into an array of strings (must be converted to int by parseInt)
 function getRGB(str){
     var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
@@ -58,6 +55,7 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
+
 // function to convert hex to rgb
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -68,19 +66,33 @@ function hexToRgb(hex) {
     } : null;
   }
 
+// Saves settings to chrome local storage
+function saveSettings() {
+    chrome.storage.local.set({Background_Color: pageColor.value});
+}
+
 // Changes the search engine
 function engine_change(engine){
+    google.style.display = '';
+    duckduckgo.style.display = '';
+    bing.style.display = '';
     if (engine == "duckduckgo"){
+        chrome.storage.local.set({search: "duckduckgo"});
         searchBar.action = "https://www.duckduckgo.com/";
         currentEngine.src = "images/duckduckgo_icon.png";
-        chrome.storage.local.set({search: "duckduckgo"});
     }
     else {
+        chrome.storage.local.set({search: `${engine}`});
         searchBar.action = `https://www.${engine}.com/search`;
         currentEngine.src = `images/${engine}_icon.png`;
-        chrome.storage.local.set({search: `${engine}`});
     }
-    document.getElementById("search_box_form_input").focus();
+    $(".dropdown_content button").css({
+        'border-bottom-left-radius': '0px',
+        'border-bottom-right-radius': '0px'});
+    let last_visible_dropdown = $('.dropdown_content button:visible:last');
+    last_visible_dropdown.css({
+        'border-bottom-left-radius': '20px',
+        'border-bottom-right-radius': '20px'});
 }
 
 // changes color of background and other elements to match theme
@@ -90,8 +102,14 @@ function theme_color(color){
     rgb_.r += 22;
     rgb_.g += 22;
     rgb_.b += 22;
-    document.getElementById("search_box_form_input").style.backgroundColor = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
-    document.getElementsByClassName("dropbtn")[0].style.backgroundColor = `rgb(${rgb_.r - 5}, ${rgb_.g - 5}, ${rgb_.b - 5})`;
+    if (rgb_.r - 22 > 130 && rgb_.g - 22> 130 && rgb_.b - 22 > 130) {
+        alert.style.backgroundColor = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
+        alert.style.display = "inline";
+    }
+    else {
+        alert.style.display = "none";
+    }
+    document.getElementById("search_box_form_input").style.background = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
 }
 
 // Opens and closes settings

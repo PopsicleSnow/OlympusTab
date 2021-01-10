@@ -5,6 +5,7 @@ Yet another take on a custom new tab page.
 Works on Chrome and Microsoft Edge
 
 View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
+Pull Requests Welcome!
 
 ![screenshot of page](tab.png)
 
@@ -25,4 +26,6 @@ View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
  - Add clickable search icon in search bar
  - Privacy mode to search without cache/cookies
  - Double click search icon for online stores search, e.g. walmart
- - Make astronaut float, (move slightly)
+ - Theme Color Support
+    - Search query
+    - Dropdown Menu

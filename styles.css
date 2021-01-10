@@ -1,37 +1,10 @@
 body
 {
     background-color: rgb(31, 31, 31);
+    margin: 0;
+    padding: 0;
 }
 
-.alert
-{
-    display: none;
-    z-index: 1;
-    left: 42%;
-    top: 0px;
-    width: 210px;
-    height: 50px;
-    background-color: black;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
-.shame
-{
-    color: white;
-    text-align: center;
-    font-size: 15px;
-}
-
-.search
-{
-    text-align: center;
-    color: white;
-    size: "900";
-    margin-top: 180px;
-    margin-left: 270px;
-    position: relative;
-}
 
 h1
 {
@@ -39,13 +12,28 @@ h1
     font-family: sans-serif;
 }
 
+#search
+{
+    text-align: center;
+    color: white;
+    display: table;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
+
 #search_box
+{
+    float: left;
+}
+
+#search_box_form_input
 {
     position: relative;
     border-radius: 20px;
     height: 14px;
     width: 710px;
-    background: rgb(53, 53, 53);
+    background-color: rgb(53, 53, 53);
     color: white;
     padding: 20px;
     outline: none;
@@ -53,12 +41,8 @@ h1
     font-family: sans-serif;
 }
 
-.search_box_form
-{
-    float: left;
-}
 
-.dropdown
+#search_dd
 {
     margin-top: 0px;
     margin-left: -5px;
@@ -77,22 +61,22 @@ h1
     border: none;
 }
 
-.dropdown-content button {
+.dropdown_content button {
     outline: none;
     border: none;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: rgb(53, 53, 53);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.dropdown-content {
+.dropdown_content {
     display: none;
     overflow: hidden;
     position: absolute;
     /* background-color: rgb(53, 53, 53); */
-    background-color: rgb(255, 255, 255, 0);
+    background-color: transparent;
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,10);
     z-index: 1;
@@ -100,20 +84,35 @@ h1
     border-bottom-right-radius: 20px;
 }
 
-.dropdown-content button:hover {background-color: rgb(40, 40, 40);}
+.dropdown_content button:hover {background-color: rgba(128, 128, 128, 0.1);}
 
-.dropdown:hover .dropdown-content {display: block;}
+#search_dd:hover .dropdown_content {display: block;}
 
-.dropdown:hover .dropbtn {
+#search_dd:hover .dropbtn {
     background-color: rgb(77, 77, 77);
     border-radius: 0px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-#hover_button
+#current-engine
 {
-    margin-left: 1px
+    margin-left: 1px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+button img
+{
+    margin-left: 1px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #astronaut
@@ -124,10 +123,10 @@ h1
     right: 400px;
 }
 
-.settings
+#settings
 {
     position: absolute;
-    top: 610px;
+    bottom: 70px;
     left: 30px;
 }
 
@@ -137,7 +136,6 @@ h1
     outline: none;
     position: absolute;
     background-color: transparent;
-    color: transparent;
     border: none;
     z-index: 2;
 }
@@ -152,11 +150,12 @@ h1
 /* Settings Wheel Image */
 #setting_wheel
 {
+    filter: drop-shadow(4px 3.5px 3px black);
     height: 30px;
     opacity: 0.4;
 }
 
-.settings_modal
+#settings_modal
 {
     border-radius: 25px;
     display: none; /* Hidden by default */
@@ -164,7 +163,7 @@ h1
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 20px;
-    top: 41%;
+    bottom: 75px;
     width: 24%; /* Full width */
     height: 50%; /* Full height */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -183,7 +182,7 @@ h1
     animation-duration: 0.4s
 }
 
-/* Add Animation */
+/* Add Settings Modal Animation */
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
@@ -198,6 +197,11 @@ th
 {
     font-size: 15px;
     text-align: left;
+}
+
+tr
+{
+    padding-bottom: 30px;
 }
 
 td
