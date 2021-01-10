@@ -5,37 +5,26 @@ body
     padding: 0;
 }
 
-#shame_alert
-{
-    display: none;
-    position: absolute;
-    width: 150px;
-    left: 45%;
-    text-align: center;
-    font-size: 15px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: black;
-    color: white;
-}
-
-
-#search
-{
-    text-align: center;
-    color: white;
-    padding: 170px 0px 0px 270px;
-    /*
-    margin-top: 180px;
-    margin-left: 270px; 
-    */
-    /** position: relative; **/
-}
 
 h1
 {
     color: white;
     font-family: sans-serif;
+}
+
+#search
+{
+    text-align: center;
+    color: white;
+    display: table;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
+
+#search_box
+{
+    float: left;
 }
 
 #search_box_form_input
@@ -44,7 +33,7 @@ h1
     border-radius: 20px;
     height: 14px;
     width: 710px;
-    background: rgb(53, 53, 53);
+    background-color: rgb(53, 53, 53);
     color: white;
     padding: 20px;
     outline: none;
@@ -52,10 +41,6 @@ h1
     font-family: sans-serif;
 }
 
-#search_box
-{
-    float: left;
-}
 
 #search_dd
 {
@@ -83,7 +68,7 @@ h1
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: rgb(53, 53, 53);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .dropdown_content {
@@ -91,7 +76,7 @@ h1
     overflow: hidden;
     position: absolute;
     /* background-color: rgb(53, 53, 53); */
-    background-color: rgb(255, 255, 255, 0);
+    background-color: transparent;
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,10);
     z-index: 1;
@@ -99,7 +84,7 @@ h1
     border-bottom-right-radius: 20px;
 }
 
-.dropdown_content button:hover {background-color: rgb(40, 40, 40);}
+.dropdown_content button:hover {background-color: rgba(128, 128, 128, 0.1);}
 
 #search_dd:hover .dropdown_content {display: block;}
 
@@ -112,7 +97,22 @@ h1
 
 #current-engine
 {
-    margin-left: 1px
+    margin-left: 1px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+button img
+{
+    margin-left: 1px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #astronaut
@@ -126,7 +126,7 @@ h1
 #settings
 {
     position: absolute;
-    top: 610px;
+    bottom: 70px;
     left: 30px;
 }
 
@@ -136,7 +136,6 @@ h1
     outline: none;
     position: absolute;
     background-color: transparent;
-    color: transparent;
     border: none;
     z-index: 2;
 }
@@ -151,6 +150,7 @@ h1
 /* Settings Wheel Image */
 #setting_wheel
 {
+    filter: drop-shadow(4px 3.5px 3px black);
     height: 30px;
     opacity: 0.4;
 }
@@ -163,7 +163,7 @@ h1
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 20px;
-    top: 41%;
+    bottom: 75px;
     width: 24%; /* Full width */
     height: 50%; /* Full height */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -197,6 +197,11 @@ th
 {
     font-size: 15px;
     text-align: left;
+}
+
+tr
+{
+    padding-bottom: 30px;
 }
 
 td

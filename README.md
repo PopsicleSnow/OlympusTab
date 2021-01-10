@@ -5,6 +5,7 @@ Yet another take on a custom new tab page.
 Works on Chrome and Microsoft Edge
 
 View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
+Pull Requests Welcome!
 
 ![screenshot of page](tab.png)
 
