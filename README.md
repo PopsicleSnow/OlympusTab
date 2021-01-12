@@ -4,7 +4,7 @@ Yet another take on a custom new tab page.
 Designed for customizability and ease of use.  
 Works on most Chromium based browsers - including Chrome and Microsoft Edge
 
-View it here: https://popsiclesnow.github.io/CosmicOlympus/custom_tab.html.
+View it here: https://popsiclesnow.github.io/OlympusTab/newtab.html.
 Pull Requests Welcome!  
 *Note: Settings not available in demo*  
 ![screenshot of tab page](tab.png)
