@@ -1,6 +1,6 @@
 # Olympus New Tab Page
 
-Yet another take on a custom new tab page.
+Yet another take on a custom new tab page. \n
 Designed for customizability and ease of use.
 Works on most Chromium based browsers - including Chrome and Microsoft Edge
 
