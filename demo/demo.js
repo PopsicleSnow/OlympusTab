@@ -49,11 +49,11 @@ function hexToRgb(hex) {
 function engine_change(engine){
     if (engine == "duckduckgo"){
         searchBar.action = "https://www.duckduckgo.com/";
-        currentEngine.src = "/images/duckduckgo_icon.png";
+        currentEngine.src = "/OlympusTab/images/duckduckgo_icon.png";
     }
     else {
         searchBar.action = `https://www.${engine}.com/search`;
-        currentEngine.src = `/images/${engine}_icon.png`;
+        currentEngine.src = `/OlympusTab/images/${engine}_icon.png`;
     }
     document.getElementById("search_box_form_input").focus();
 }
