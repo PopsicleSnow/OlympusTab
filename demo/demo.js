@@ -15,32 +15,9 @@ pageColor.addEventListener("input", function(){theme_color(pageColor.value);});
 $(document).ready(load())
 function load() {
 
-    // Set search engine to last used
-    chrome.storage.local.get('search', function (result) {
-        engine = result.search;
-        if (engine != "undefined") {
-            engine_change(engine);
-        }
-        else {engine_change("google");}
-    });
-
-    // Sets background color to saved color
-    chrome.storage.local.get('Background_Color', function (result) {
-        color = result.Background_Color;
-        console.log(color)
-        if (color != "undefined") {
-            document.body.style.backgroundColor = result.Background_Color;
-        }
-    });
-
     // Sets color input to current background color
     var currentbg_color = getRGB(window.getComputedStyle(document.body).backgroundColor);
     pageColor.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
-}
-
-// Saves settings to chrome local storage
-function saveSettings() {
-    chrome.storage.local.set({Background_Color: pageColor.value});
 }
 
 // splits rgb color values from strings into an array of strings (must be converted to int by parseInt)
@@ -72,13 +49,11 @@ function hexToRgb(hex) {
 function engine_change(engine){
     if (engine == "duckduckgo"){
         searchBar.action = "https://www.duckduckgo.com/";
-        currentEngine.src = "images/duckduckgo_icon.png";
-        chrome.storage.local.set({search: "duckduckgo"});
+        currentEngine.src = "/images/duckduckgo_icon.png";
     }
     else {
         searchBar.action = `https://www.${engine}.com/search`;
-        currentEngine.src = `images/${engine}_icon.png`;
-        chrome.storage.local.set({search: `${engine}`});
+        currentEngine.src = `/images/${engine}_icon.png`;
     }
     document.getElementById("search_box_form_input").focus();
 }

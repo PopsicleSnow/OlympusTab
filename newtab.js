@@ -1,1 +1,161 @@
-var searchBar=document.getElementById("search_box_form"),currentEngine=document.getElementById("current-engine"),google=document.getElementById("google"),duckduckgo=document.getElementById("duckduckgo"),bing=document.getElementById("bing"),pageColor=document.getElementById("bg_color");function load(){chrome.storage.local.get("search",function(e){engine=e.search,"undefined"!=engine?engine_change(engine):engine_change("google")}),chrome.storage.local.get("Background_Color",function(e){color=e.Background_Color,console.log(color),"undefined"!=color&&(document.body.style.backgroundColor=e.Background_Color)});var e=getRGB(window.getComputedStyle(document.body).backgroundColor);pageColor.value=rgbToHex(parseInt(e.red),parseInt(e.green),parseInt(e.blue))}function saveSettings(){chrome.storage.local.set({Background_Color:pageColor.value})}function getRGB(e){var n=e.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);return n?{red:n[1],green:n[2],blue:n[3]}:{}}function rgbToHex(e,n,o){return"#"+((1<<24)+(e<<16)+(n<<8)+o).toString(16).slice(1)}function hexToRgb(e){var n=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e);return n?{r:parseInt(n[1],16),g:parseInt(n[2],16),b:parseInt(n[3],16)}:null}function engine_change(e){"duckduckgo"==e?(searchBar.action="https://www.duckduckgo.com/",currentEngine.src="images/duckduckgo_icon.png",chrome.storage.local.set({search:"duckduckgo"})):(searchBar.action=`https://www.${e}.com/search`,currentEngine.src=`images/${e}_icon.png`,chrome.storage.local.set({search:`${e}`})),document.getElementById("search_box_form_input").focus()}function theme_color(e){document.body.style.backgroundColor=e;var n=hexToRgb(e);n.r+=22,n.g+=22,n.b+=22,document.getElementById("search_box_form_input").style.backgroundColor=`rgb(${n.r}, ${n.g}, ${n.b})`,document.getElementsByClassName("dropbtn")[0].style.backgroundColor=`rgb(${n.r-5}, ${n.g-5}, ${n.b-5})`}function dragElement(e){var n=0,o=0,t=0,c=0;function r(e){(e=e||window.event).preventDefault(),t=e.clientX,c=e.clientY,document.onmouseup=d,document.onmousemove=g}function g(r){(r=r||window.event).preventDefault(),n=t-r.clientX,o=c-r.clientY,t=r.clientX,c=r.clientY,e.style.top=e.offsetTop-o+"px",e.style.left=e.offsetLeft-n+"px"}function d(){document.onmouseup=null,document.onmousemove=null}document.getElementById(e.id+"header")?document.getElementById(e.id+"header").onmousedown=r:e.onmousedown=r}google.addEventListener("click",function(){engine_change("google")}),duckduckgo.addEventListener("click",function(){engine_change("duckduckgo")}),bing.addEventListener("click",function(){engine_change("bing")}),pageColor.addEventListener("input",function(){theme_color(pageColor.value)}),$(document).ready(load()),settings_screen=$("#settings_modal"),$(document).click(function(e){$(e.target).closest("#settings_modal, #setting_button").length||settings_screen.css("display","none"),$(e.target).closest("#setting_button").length&&("none"==settings_screen.css("display")?settings_screen.css("display","block"):settings_screen.css("display","none"))}),dragElement(document.getElementById("astronaut"));
+var searchBar = document.getElementById("search_box_form");
+var currentEngine = document.getElementById("current-engine");
+var google = document.getElementById("google");
+var duckduckgo = document.getElementById("duckduckgo");
+var bing = document.getElementById("bing");
+var pageColor = document.getElementById("bg_color");
+
+// Event listeners for click of buttons under dropdown
+google.addEventListener("click", function(){engine_change("google");});
+duckduckgo.addEventListener("click", function(){engine_change("duckduckgo");});
+bing.addEventListener("click", function(){engine_change("bing");});
+pageColor.addEventListener("input", function(){theme_color(pageColor.value);});
+
+// Retrieves settings and loads them
+$(document).ready(load())
+function load() {
+
+    // Set search engine to last used
+    chrome.storage.local.get('search', function (result) {
+        engine = result.search;
+        if (engine != "undefined") {
+            engine_change(engine);
+        }
+        else {engine_change("google");}
+    });
+
+    // Sets background color to saved color
+    chrome.storage.local.get('Background_Color', function (result) {
+        color = result.Background_Color;
+        console.log(color)
+        if (color != "undefined") {
+            document.body.style.backgroundColor = result.Background_Color;
+        }
+    });
+
+    // Sets color input to current background color
+    var currentbg_color = getRGB(window.getComputedStyle(document.body).backgroundColor);
+    pageColor.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
+}
+
+// Saves settings to chrome local storage
+function saveSettings() {
+    chrome.storage.local.set({Background_Color: pageColor.value});
+}
+
+// splits rgb color values from strings into an array of strings (must be converted to int by parseInt)
+function getRGB(str){
+    var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
+    return match ? {
+      red: match[1],
+      green: match[2],
+      blue: match[3]
+    } : {};
+}
+
+// function to convert rgb to hex
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
+// function to convert hex to rgb
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
+// Changes the search engine
+function engine_change(engine){
+    if (engine == "duckduckgo"){
+        searchBar.action = "https://www.duckduckgo.com/";
+        currentEngine.src = "images/duckduckgo_icon.png";
+        chrome.storage.local.set({search: "duckduckgo"});
+    }
+    else {
+        searchBar.action = `https://www.${engine}.com/search`;
+        currentEngine.src = `images/${engine}_icon.png`;
+        chrome.storage.local.set({search: `${engine}`});
+    }
+    document.getElementById("search_box_form_input").focus();
+}
+
+// changes color of background and other elements to match theme
+function theme_color(color){
+    document.body.style.backgroundColor = color;
+    var rgb_ = hexToRgb(color);
+    rgb_.r += 22;
+    rgb_.g += 22;
+    rgb_.b += 22;
+    document.getElementById("search_box_form_input").style.backgroundColor = `rgb(${rgb_.r}, ${rgb_.g}, ${rgb_.b})`;
+    document.getElementsByClassName("dropbtn")[0].style.backgroundColor = `rgb(${rgb_.r - 5}, ${rgb_.g - 5}, ${rgb_.b - 5})`;
+}
+
+// Opens and closes settings
+settings_screen = $("#settings_modal");
+$(document).click(function(event) {
+    // If you click on anything except the modal itself or the "open modal" link, close the modal
+    if (!$(event.target).closest("#settings_modal, #setting_button").length) {
+        settings_screen.css('display', 'none');
+    }
+    // If you click on settings button, open/close
+    if ($(event.target).closest("#setting_button").length) {
+        if (settings_screen.css('display') == "none") {
+            settings_screen.css('display', 'block');
+        }
+        else {
+            settings_screen.css('display', 'none');
+        }
+    }
+});
+
+dragElement(document.getElementById("astronaut"));
+
+// makes elements draggable
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+    if (document.getElementById(elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    }
+    else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
