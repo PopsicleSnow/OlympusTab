@@ -7,7 +7,7 @@ Works on most Chromium based browsers - including Chrome and Microsoft Edge
 View it here: https://popsiclesnow.github.io/OlympusTab/demo/demo.html.
 Pull Requests Welcome!  
  
-![screenshot of tab page](tab.png)
+![screenshot of tab page](images/tab.png)
 
 # Installation
 [Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/adding-and-removing-extensions#adding-an-extension)

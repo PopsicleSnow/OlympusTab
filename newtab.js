@@ -72,12 +72,12 @@ function hexToRgb(hex) {
 function engine_change(engine){
     if (engine == "duckduckgo"){
         searchBar.action = "https://www.duckduckgo.com/";
-        currentEngine.src = "images/duckduckgo_icon.png";
+        currentEngine.src = "images/duckduckgo_icon.svg";
         chrome.storage.local.set({search: "duckduckgo"});
     }
     else {
         searchBar.action = `https://www.${engine}.com/search`;
-        currentEngine.src = `images/${engine}_icon.png`;
+        currentEngine.src = `images/${engine}_icon.svg`;
         chrome.storage.local.set({search: `${engine}`});
     }
     document.getElementById("search_box_form_input").focus();
