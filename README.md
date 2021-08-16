@@ -1,11 +1,10 @@
 # Olympus New Tab Page
 
-Yet another take on a custom new tab page.  
-Designed for **customizability** and **ease of use**.  
+Another new tab page.  
+Designed for **customizability** and **simplicity**.  
 Works on most Chromium based browsers - including Chrome and Microsoft Edge
 
 View it here: https://popsiclesnow.github.io/OlympusTab/demo/demo.html.
-Pull Requests Welcome!  
  
 ![screenshot of tab page](images/tab.png)
 
