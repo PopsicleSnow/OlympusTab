@@ -10,7 +10,7 @@ Pull Requests Welcome!
 ![screenshot of tab page](images/tab.png)
 
 # Installation
-[Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/adding-and-removing-extensions#adding-an-extension)
+[Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
 
 [Google Chrome](https://support.google.com/chrome/a/answer/2714278)
 
