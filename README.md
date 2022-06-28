@@ -1,4 +1,4 @@
-# Olympus New Tab Page
+## Olympus New Tab Page
 
 Another new tab page.  
 Designed for **customizability** and **simplicity**.  
