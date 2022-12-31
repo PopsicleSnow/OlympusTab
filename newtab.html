@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <script src="jquery.min.js"></script>
+        <script src="jquery-3.6.3.min.js"></script>
         <title>
             New Tab
         </title>
@@ -16,37 +17,37 @@
         <div id="search">
             <!-- Search Box to type search query -->
             <div id="search_box">
-                <form id=search_box_form name=web_engine action="https://www.google.com/search" method="GET">
-                    <input id="search_box_form_input" name="q" autocomplete="off" type="text" placeholder="Search...">
+                <form id="search_box_form" name="web_engine" action="https://www.google.com/search" method="GET">
+                    <input autofocus id="search_box_form_input" name="q" autocomplete="off" type="text" placeholder="Search...">
                 </form>
             </div>
 
             <!-- Dropdown to select search engine -->
             <div id="search_dd">
-                <button class="dropbtn">
-                    <img src="images/google_icon.svg" id="current-engine" height="32" width="32">
+                <button class="dropbtn" aria="Dropdown for search engines">
+                    <img id="current-engine" src="images/google_icon.svg" alt="Current search engine" height="32" width="32">
                 </button>
                 <div class="dropdown_content">
-                    <button type="button" id="google">
+                    <button id="google" data-link="https://www.google.com/search" type="button">
                         <img src="images/google_icon.svg" alt="Google" height="32" width="32">
                     </button>
-                    <button type="button" id="duckduckgo">
+                    <button id="duckduckgo" data-link="https://www.duckduckgo.com/" type="button">
                         <img src="images/duckduckgo_icon.svg" alt="DuckDuckGo" height="32" width="32">
                     </button>
-                    <button type="button" id="bing">
+                    <button id="bing" data-link="https://www.bing.com/search" type="button">
                         <img src="images/bing_icon.svg" alt="Bing" height="32" width="32">
                     </button>
                 </div>
             </div>
         </div>
 
-        <img id="astronaut" src="images/astronaut.webp">
-
-        <div id=settings>
+        <img id="astronaut" src="images/astronaut.webp" alt="">
+        
+        <!-- Settings -->
+        <div id="settings">
             <button id="setting_button">
-                <img id="setting_wheel" src="images/settings.svg">
+                <img id="setting_wheel" src="images/settings.svg" alt="Settings">
             </button>
-            
             <div id="settings_modal">
                 <div class="modal_content">
                     <table>
@@ -72,7 +73,6 @@
                 </div>
                 <button id="settings-save">Save</button>
             </div>
-            
         </div>
 
         <script src="newtab.js"></script>

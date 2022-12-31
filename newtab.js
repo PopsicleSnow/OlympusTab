@@ -1,27 +1,20 @@
-var searchBar = document.getElementById("search_box_form");
-var currentEngine = document.getElementById("current-engine");
-var google = document.getElementById("google");
-var duckduckgo = document.getElementById("duckduckgo");
-var bing = document.getElementById("bing");
-var pageColor = document.getElementById("bg_color");
+const searchBar = document.getElementById("search_box_form");
+const currentEngine = document.getElementById("current-engine");
+const pageColor = document.getElementById("bg_color");
 
-// Event listeners for click of buttons under dropdown
-google.addEventListener("click", function(){engine_change("google");});
-duckduckgo.addEventListener("click", function(){engine_change("duckduckgo");});
-bing.addEventListener("click", function(){engine_change("bing");});
-pageColor.addEventListener("input", function(){theme_color(pageColor.value);});
+pageColor.addEventListener("input", () => {theme_color(pageColor.value);});
 
 // Retrieves settings and loads them
-$(document).ready(load())
-function load() {
-
+$(document).ready(() => {
     // Set search engine to last used
     chrome.storage.local.get('search', function (result) {
         engine = result.search;
+        /*
         if (engine != "undefined") {
             engine_change(engine);
         }
         else {engine_change("google");}
+        */
     });
 
     // Sets background color to saved color
@@ -36,7 +29,17 @@ function load() {
     // Sets color input to current background color
     var currentbg_color = getRGB(window.getComputedStyle(document.body).backgroundColor);
     pageColor.value = rgbToHex(parseInt(currentbg_color["red"]), parseInt(currentbg_color["green"]), parseInt(currentbg_color["blue"]));
-}
+})
+
+// Changes the search engine
+document.querySelectorAll(".dropdown_content button").forEach(button => {
+    button.onclick = function() {
+        searchBar.action = button.dataset.link;
+        currentEngine.src = `images/${button.id}_icon.svg`;
+        chrome.storage.local.set({search: `${button.id}`});
+        document.getElementById("search_box_form_input").focus();
+    }
+});
 
 // Saves settings to chrome local storage
 function saveSettings() {
@@ -67,21 +70,6 @@ function hexToRgb(hex) {
       b: parseInt(result[3], 16)
     } : null;
   }
-
-// Changes the search engine
-function engine_change(engine){
-    if (engine == "duckduckgo"){
-        searchBar.action = "https://www.duckduckgo.com/";
-        currentEngine.src = "images/duckduckgo_icon.svg";
-        chrome.storage.local.set({search: "duckduckgo"});
-    }
-    else {
-        searchBar.action = `https://www.${engine}.com/search`;
-        currentEngine.src = `images/${engine}_icon.svg`;
-        chrome.storage.local.set({search: `${engine}`});
-    }
-    document.getElementById("search_box_form_input").focus();
-}
 
 // changes color of background and other elements to match theme
 function theme_color(color){
