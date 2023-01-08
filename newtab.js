@@ -7,14 +7,16 @@ pageColor.addEventListener("input", () => {theme_color(pageColor.value);});
 // Retrieves settings and loads them
 $(document).ready(() => {
     // Set search engine to last used
-    chrome.storage.local.get('search', function (result) {
+    chrome.storage.local.get("search", (result) => {
         engine = result.search;
-        /*
-        if (engine != "undefined") {
-            engine_change(engine);
+        if (engine) {
+            changeEngine();
         }
-        else {engine_change("google");}
-        */
+        else {
+            chrome.storage.local.set({"search": "google"});
+            chrome.storage.local.set({"search_url": "https://www.google.com/search"});
+            changeEngine();
+        }
     });
 
     // Sets background color to saved color
@@ -34,12 +36,19 @@ $(document).ready(() => {
 // Changes the search engine
 document.querySelectorAll(".dropdown_content button").forEach(button => {
     button.onclick = function() {
-        searchBar.action = button.dataset.link;
-        currentEngine.src = `images/${button.id}_icon.svg`;
-        chrome.storage.local.set({search: `${button.id}`});
+        chrome.storage.local.set({"search": `${button.id}`});
+        chrome.storage.local.set({"search_url": `${button.dataset.url}`})
+        changeEngine()
         document.getElementById("search_box_form_input").focus();
     }
 });
+
+function changeEngine() {
+    chrome.storage.local.get("search", (result) => {
+        currentEngine.src = `images/${result.search}_icon.svg`;
+        searchBar.action = document.getElementById(result.search).dataset.url;
+    });
+}
 
 // Saves settings to chrome local storage
 function saveSettings() {
